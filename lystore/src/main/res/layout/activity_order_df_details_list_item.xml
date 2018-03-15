@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:paddingRight="10dp"
+        >
+        <TextView
+            android:id="@+id/goodsname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:textColor="#242429"
+            android:text="番茄炒西红柿"
+            />
+
+        <TextView
+            android:id="@+id/goodscount"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:text="X55"
+            android:textColor="#a8a8a8"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/goodsprice"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text="￥33666.00"
+            android:textColor="#ff452a"
+            android:textSize="14sp" />
+    </LinearLayout>
+</LinearLayout>

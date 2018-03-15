@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f7f7f7"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#fff"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        >
+         <ImageView
+             android:id="@+id/scanqr"
+             android:layout_width="25dp"
+             android:layout_height="25dp"
+             android:layout_centerVertical="true"
+             android:src="@mipmap/icon_scanqr_bg"
+             />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="收银"
+            android:textColor="#333333"
+            android:textSize="24sp" />
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#22000000"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="#fff"
+        >
+        <LinearLayout
+            android:id="@+id/llIndex"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/tvIndex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="收银"
+                android:textColor="#838383"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/ivIndex"
+                android:layout_width="46dp"
+                android:layout_height="1dp"
+                android:background="@drawable/img_btn_selected"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lltwo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvtwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="订单"
+                android:textColor="#838383"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ivtwo"
+                android:layout_width="46dp"
+                android:layout_height="1dp"
+                android:background="@drawable/img_btn_selected" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="1dp"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <include layout="@layout/shop_cart" />
+
+</LinearLayout>

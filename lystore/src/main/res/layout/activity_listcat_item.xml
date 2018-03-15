@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:gravity="center_vertical"
+    >
+    <TextView
+        android:id="@+id/tablecatname"
+        android:layout_width="61dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:background="@mipmap/icon_goodscate_bg"
+        android:layout_height="47dp"
+        />
+</LinearLayout>

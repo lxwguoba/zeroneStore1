@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f7f7f7"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#fff"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        >
+        <!--<ImageView-->
+            <!--android:id="@+id/ic_back_btn"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@mipmap/icon_back_left"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_centerInParent="true"
+            android:text="收银台"
+            android:textColor="#333333"
+            />
+
+        <!--<ImageView-->
+            <!--android:id="@+id/selected_waiter"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@mipmap/icon_change_waiter_bg"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--/>-->
+    </RelativeLayout>
+    <RadioGroup
+        android:id="@+id/zhuye_group"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#fff"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+            <RadioButton
+                android:id="@+id/order_dc"
+                style="@style/main_radiobutton"
+                android:text="点餐"
+                />
+              <ImageView
+                  android:layout_width="40dp"
+                  android:layout_height="1dp"
+                  android:background="#7fe2aa"/>
+        </LinearLayout>
+
+        <RadioButton
+            android:id="@+id/order_dd"
+            style="@style/main_radiobutton"
+            android:text="订单"
+            />
+
+        <RadioButton
+            android:id="@+id/order_table"
+            android:text="选择餐桌"
+            style="@style/main_radiobutton" />
+    </RadioGroup>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f2f2f2"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/zhuye_vp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f2f2f2"
+        />
+
+    <include
+        layout="@layout/shop_cart" />
+
+</LinearLayout>

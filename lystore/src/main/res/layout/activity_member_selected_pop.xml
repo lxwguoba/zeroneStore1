@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--卡片试布局-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#10000000"
+    android:layout_gravity="center_horizontal"
+    >
+<LinearLayout
+    android:id="@+id/cardview"
+    android:background="@mipmap/icon_member_bg"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:text="二维码签入"
+            android:textSize="16sp"
+            android:textColor="#242429"
+            android:gravity="center"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="#f2f2f2"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp">
+
+              <LinearLayout
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:background="@mipmap/icon_member_qr_bg"
+                  android:padding="10dp"
+                  android:layout_centerInParent="true"
+                  >
+                  <ImageView
+                      android:id="@+id/qr_code"
+                      android:layout_width="100dp"
+                      android:layout_height="100dp"
+                      />
+
+              </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="#f2f2f2"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:layout_height="50dp">
+            <Button
+                android:id="@+id/member"
+                android:layout_width="wrap_content"
+                 android:layout_marginLeft="30dp"
+                android:layout_height="40dp"
+                android:textColor="#fff"
+                android:background="@mipmap/icon_member_vip_bg"
+                android:text="会员"
+                />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+            <Button
+                android:id="@+id/x_member"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="30dp"
+                android:textColor="#ffffff"
+                android:background="@mipmap/icon_member_xc_bg"
+                android:text="现场顾客"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

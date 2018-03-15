@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.store.zerone.zeronestore">
+    <!--需要添加权限判断 这个不是危险的所以不需要-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/app_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/app_logo"
+        android:supportsRtl="true"
+        android:name=".application.MyApplication"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <activity android:name="com.store.zerone.zeronestore.activity.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ResultActivity"/>
+        <activity android:name=".ScanQrCodeGetGoods"/>
+        <!--接收结果广播-->
+        <receiver android:name="com.store.zerone.zeronestore.ResultReceiver">
+            <intent-filter>
+                <action android:name="sunmi.payment.L3.RESULT" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

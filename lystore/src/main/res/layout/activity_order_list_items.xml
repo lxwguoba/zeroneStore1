@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--卡片试布局-->
+<android.support.v7.widget.CardView
+    android:id="@+id/cardview"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="2dp"
+    android:layout_height="130dp"
+    android:layout_margin="10dp"
+    android:background="@mipmap/icon_order_df_bg"
+    android:layout_width="match_parent"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:paddingRight="10dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/order_tablename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="眉州4号"
+                android:padding="4dp"
+                android:gravity="center"
+                android:textSize="13sp"
+                android:textColor="#fff"
+               android:background="@mipmap/icon_order_df_table_bg"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                />
+            <TextView
+                android:id="@+id/ordertime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2018-01-30 17:39:30"
+                android:padding="4dp"
+                android:textSize="9sp"
+                android:textColor="#838383"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:paddingRight="10dp"
+            >
+
+            <TextView
+                android:id="@+id/order_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥336853.00"
+                android:textColor="#ff5131"
+                android:textSize="16sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingRight="10dp"
+            android:gravity="center_vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="打印："
+                android:textColor="#838383"
+                android:textSize="10sp"
+                />
+            <ImageView
+                android:id="@+id/q_print_status"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:layout_marginLeft="4dp"
+                 android:src="@mipmap/icon_order_df_print_com_bg"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="前台"
+                android:textColor="#838383"
+                android:layout_marginLeft="2dp"
+                android:textSize="10sp"
+                />
+            <ImageView
+                android:id="@+id/h_print_status"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:layout_marginLeft="7dp"
+                android:src="@mipmap/icon_order_df_print_nocom_bg"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="后厨"
+                android:layout_marginLeft="2dp"
+                android:textColor="#838383"
+                android:textSize="10sp"
+                />
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="1dp"/>
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="订单："
+                  android:textSize="10sp"
+                  android:textColor="#838383"
+                  />
+               <TextView
+                   android:id="@+id/order_number"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="1313132134351351"
+                   android:textSize="10sp"
+                   android:textColor="#838383"
+                   />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+
+              <TextView
+                  android:id="@+id/order_cw_fei"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerVertical="true"
+                  android:text="餐位费："
+                  android:textSize="9sp"
+                  android:textColor="#b1b6c1"
+                  />
+
+            <TextView
+                android:id="@+id/order_canweifei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥30.00"
+                android:textSize="9sp"
+                android:textColor="#b1b6c1"
+                android:layout_toRightOf="@id/order_cw_fei"
+                android:layout_centerVertical="true"
+                />
+
+
+            <TextView
+                android:id="@+id/pay_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="待付款"
+                android:textSize="11sp"
+                android:textColor="#ffffff"
+                android:background="@mipmap/icon_order_df_status_bg"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

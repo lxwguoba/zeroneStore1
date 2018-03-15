@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/icon_login_bg"
+    android:orientation="vertical">
+
+    <!--头部图片和公司logo-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+    </LinearLayout>
+
+    <!--主体的内容是密码和用户名-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+            <!--用户名-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingBottom="10dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="@mipmap/icon_login_username"
+                android:paddingTop="10dp">
+
+
+
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:layout_marginLeft="50dp"
+                    android:inputType="text"
+                    android:hint="请输入用户名"
+                    android:paddingLeft="10dp"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+            <!--密码-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="25dp"
+                android:background="@mipmap/icon_login_usepwd"
+                android:layout_marginRight="25dp"
+                android:paddingBottom="10dp">
+
+                <EditText
+                    android:id="@+id/userpwd"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:layout_marginLeft="50dp"
+                    android:inputType="textPassword"
+                    android:hint="请输密码"
+                    android:paddingLeft="10dp"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+            <!--记住用户名-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:gravity="center_vertical"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+                <CheckBox
+                    android:id="@+id/rember_user"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:checked="true"
+                    android:layout_marginLeft="16dp"
+                    android:button="@null"
+                    android:background="@drawable/login_check_btn_drawable"
+                    android:layout_marginRight="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#7fe2aa"
+                    android:text="记住用户名和密码" />
+
+            </LinearLayout>
+            <!--登录按钮-->
+            <LinearLayout
+               android:id="@+id/login_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/login_btn_drawable"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:orientation="vertical">
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+    <!--底部内容 用来展示公司的客服电话和版权-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="©零壹新科技（深圳）有限公司"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14sp" />-->
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="服务热线：84586955/0755-83460328"-->
+            <!--android:textColor="#000"-->
+            <!--android:textSize="14sp" />-->
+    </LinearLayout>
+</LinearLayout>

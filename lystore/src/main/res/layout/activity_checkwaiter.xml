@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="选择接待员"
+        android:textSize="18sp"
+        android:background="#fff"
+        android:textColor="#333"
+        android:gravity="center"
+        />
+
+    <ListView
+        android:id="@+id/waiterlist"
+        android:divider="@null"
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+</LinearLayout>
