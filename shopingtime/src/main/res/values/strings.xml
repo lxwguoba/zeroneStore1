@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">""</string>
+    <string name="account">账号</string>
+    <string name="password">密码</string>
+    <string name="input_account">请输入您的会员账号</string>
+    <string name="input_password">请输入密码</string>
+    <string name="loginString">立即登录</string>
+    <string name="remberaccount">记住账号</string>
+    <string name="prompt">提示</string>
+    <string name="scan_string">扫码</string>
+    <string name="login_error">登录遇到问题？</string>
+    <string name="xiyi"><b>登录代表您已同意</b></string>
+    <string name="xiyicontnent">《零壹用户协议》</string>
+
+    <!--instruction-->
+    <string name="toast_1">Transaction print,use the AIDL mode!</string>
+    <string name="toast_2">The service has been disconnected!</string>
+    <string name="toast_3">Bluetooth device is unavailable</string>
+    <string name="toast_4">Bluetooth device not detected. Please open Bluetooth!</string>
+    <string name="toast_5">Not Found InnterPrinter!</string>
+    <string name="toast_6">Bluetooth connect failed!</string>
+    <string name="toast_7"> Only a single Qr code is printed for the AIDL mode</string>
+    <string name="toast_8">Now QrCode size must be less than 7!</string>
+    <string name="paytype">支付方式</string>
+</resources>
