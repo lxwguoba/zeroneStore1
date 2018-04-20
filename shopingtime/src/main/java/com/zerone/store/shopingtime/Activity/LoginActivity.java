@@ -28,6 +28,7 @@ import com.zerone.store.shopingtime.Utils.AppSharePreferenceMgr;
 import com.zerone.store.shopingtime.Utils.LoadingUtils;
 import com.zerone.store.shopingtime.Utils.NetUtils;
 import com.zerone.store.shopingtime.Utils.NetworkUtil;
+import com.zerone.store.shopingtime.Utils.SystemUIUtils;
 import com.zyao89.view.zloading.ZLoadingDialog;
 
 import org.json.JSONException;
@@ -117,6 +118,8 @@ public class LoginActivity extends BaseAppActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         mContext = LoginActivity.this;
+        //页面全屏显示
+        SystemUIUtils.setStickFullScreen(getWindow().getDecorView());
         initPosInfo();
         initview();
         action();
@@ -164,7 +167,7 @@ public class LoginActivity extends BaseAppActivity {
 
     private void initview() {
         closeactivity = (ImageView) findViewById(R.id.closeactivity);
-        agreement = findViewById(R.id.agreement);
+        agreement = (TextView) findViewById(R.id.agreement);
         accountInfoDao = new AccountInfoDao(mContext);
         showpassword = (ImageView) findViewById(R.id.showpassword);
         username = (EditText) findViewById(R.id.username);

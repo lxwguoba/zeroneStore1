@@ -28,13 +28,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.eowise.recyclerview.stickyheaders.OnHeaderClickListener;
-import com.eowise.recyclerview.stickyheaders.StickyHeadersItemDecoration;
-import com.uuzuche.lib_zxing.activity.CaptureActivity;
-import com.uuzuche.lib_zxing.activity.CodeUtils;
-import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 import com.zerone.store.shopingtime.Adapter.cart_list.ListGoodsDetails_Adapter;
-import com.zerone.store.shopingtime.Adapter.shopplistadapter.BigramHeaderAdapter;
 import com.zerone.store.shopingtime.Adapter.shopplistadapter.PersonAdapter;
 import com.zerone.store.shopingtime.Adapter.shopplistadapter.RecycleGoodsCategoryListAdapter;
 import com.zerone.store.shopingtime.Base64AndMD5.CreateToken;
@@ -60,15 +54,18 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Created by on 2018/3/31 0031 09 51.
  * Author  LiuXingWen
+ * OnHeaderClickListener
  */
 
-public class OrderListActvity extends BaseAppActivity implements OnHeaderClickListener {
+public class OrderListActvity extends BaseAppActivity {
+    private static final String TAG = "OrderListActvity";
     //商品类别列表
     private List<GoodsCategroyListBean.DataBean.CategorylistBean> catelist = new ArrayList<>();
     //存储含有标题的第一个含有商品类别名称的条目的下表
@@ -76,7 +73,7 @@ public class OrderListActvity extends BaseAppActivity implements OnHeaderClickLi
     //商品列表
     private List<ShopBean> goodsitemlist = new ArrayList<>();
     private List<ShopBean> buyShoppingList = new ArrayList<>();
-    private StickyHeadersItemDecoration top;
+    //    private StickyHeadersItemDecoration top;
     //商品分类
     private RecyclerView mGoodsCateGoryList;
     //上一个标题的小标位置
@@ -86,7 +83,7 @@ public class OrderListActvity extends BaseAppActivity implements OnHeaderClickLi
     private RecycleGoodsCategoryListAdapter mGoodsCategoryListAdapter;
     private LinearLayoutManager mLinearLayoutManager;
     private PersonAdapter personAdapter;
-    private BigramHeaderAdapter headerAdapter;
+    //    private BigramHeaderAdapter headerAdapter;
     private ZLoadingDialog loading_dailog;
     private UserInfo userInfo;
     private List<ShopMessageBean> buycartshoplist;
@@ -336,6 +333,7 @@ public class OrderListActvity extends BaseAppActivity implements OnHeaderClickLi
                     break;
 
                 case 12:
+                    //扫描结果获取服务器获取商品的处理
                     loading_dailog.dismiss();
                     String scanJson = (String) msg.obj;
                     try {
@@ -358,6 +356,7 @@ public class OrderListActvity extends BaseAppActivity implements OnHeaderClickLi
                                 if (thesamelean) {
                                     //同一个商品
                                     // 2、同一个商品 数量加一
+                                    Log.i(TAG, "999999999999999999999999999999999999999999999");
                                     String sp_count = buycartshoplist.get(tsIndex).getSp_count();
                                     int coun = Integer.parseInt(sp_count);
                                     coun++;
@@ -371,8 +370,10 @@ public class OrderListActvity extends BaseAppActivity implements OnHeaderClickLi
                                     smb.setSp_discount(buycartshoplist.get(tsIndex).getSp_discount());
                                     smb.setSp_price(buycartshoplist.get(tsIndex).getSp_price());
                                     buycartshoplist.set(tsIndex, smb);
+                                    Log.i(TAG, "购物车里的东西：：：" + buycartshoplist.toString());
                                 } else {
                                     //不同一个商品
+                                    Log.i(TAG, "888888888888888888888888888888888888888888");
                                     ShopMessageBean smb = new ShopMessageBean();
                                     smb.setSp_count("1");
                                     smb.setSp_id(jsonArray.getJSONObject(0).getString("id"));
@@ -390,6 +391,7 @@ public class OrderListActvity extends BaseAppActivity implements OnHeaderClickLi
                                 }
                             } else {
                                 //购车里没有商品的时候
+                                Log.i(TAG, "777777777777777777777777777777777777777777");
                                 ShopMessageBean smb = new ShopMessageBean();
                                 smb.setSp_count("1");
                                 smb.setSp_id(jsonArray.getJSONObject(0).getString("id"));
@@ -417,12 +419,15 @@ public class OrderListActvity extends BaseAppActivity implements OnHeaderClickLi
                             } else {
                                 showOrderList.setVisibility(View.INVISIBLE);
                             }
+
                             for (int l = 0; l < goodsitemlist.size(); l++) {
                                 if (id == goodsitemlist.get(l).getId()) {
                                     int oldCount = Integer.parseInt(goodsitemlist.get(l).getShop_Count());
                                     oldCount++;
                                     goodsitemlist.get(l).setShop_Count("" + oldCount);
-                                    buyShoppingList.add(goodsitemlist.get(l));
+                                    if (!thesamelean) {
+                                        buyShoppingList.add(goodsitemlist.get(l));
+                                    }
                                     break;
                                 }
                             }
@@ -584,7 +589,6 @@ public class OrderListActvity extends BaseAppActivity implements OnHeaderClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orderlist);
-        ZXingLibrary.initDisplayOpinion(this);
         mContent = OrderListActvity.this;
         buycartshoplist = new ArrayList<>();
         initView();
@@ -642,8 +646,18 @@ public class OrderListActvity extends BaseAppActivity implements OnHeaderClickLi
             @Override
             public void onClick(View v) {
 //                //启动扫码
-                Intent intent = new Intent(OrderListActvity.this, CaptureActivity.class);
+                Intent intent = new Intent("com.summi.scan");
+                intent.setPackage("com.sunmi.sunmiqrcodescanner");
+                intent.putExtra("CURRENT_PPI", 0X0003);//当前分辨率
+                intent.putExtra("PLAY_SOUND", true);// 扫描完成声音提示  默认true
+                intent.putExtra("PLAY_VIBRATE", true);
+                //扫描完成震动,默认false，目前M1硬件支持震动可用该配置，V1不支持
+                intent.putExtra("IDENTIFY_INVERSE_QR_CODE", true);// 识别反色二维码，默认true
+                intent.putExtra("IDENTIFY_MORE_CODE", false);// 识别画面中多个二维码，默认false
+                intent.putExtra("IS_SHOW_SETTING", false);// 是否显示右上角设置按钮，默认true
+                intent.putExtra("IS_SHOW_ALBUM", false);// 是否显示从相册选择图片按钮，默认true
                 startActivityForResult(intent, 520);
+
             }
         });
         search_head_btn.setOnClickListener(new View.OnClickListener() {
@@ -869,6 +883,18 @@ public class OrderListActvity extends BaseAppActivity implements OnHeaderClickLi
         });
     }
 
+//    /**
+//     * 商品信息列表的标题点击事件
+//     *
+//     * @param header
+//     * @param headerId
+//     */
+//    @Override
+//    public void onHeaderClick(View header, long headerId) {
+//        TextView text = (TextView) header.findViewById(R.id.tvGoodsItemTitle);
+//        Toast.makeText(OrderListActvity.this, "Click on " + text.getText(), Toast.LENGTH_SHORT).show();
+//    }
+
     /**
      * 获取分类信息
      */
@@ -891,18 +917,6 @@ public class OrderListActvity extends BaseAppActivity implements OnHeaderClickLi
 
     }
 
-    /**
-     * 商品信息列表的标题点击事件
-     *
-     * @param header
-     * @param headerId
-     */
-    @Override
-    public void onHeaderClick(View header, long headerId) {
-        TextView text = (TextView) header.findViewById(R.id.tvGoodsItemTitle);
-        Toast.makeText(OrderListActvity.this, "Click on " + text.getText(), Toast.LENGTH_SHORT).show();
-    }
-
     public void setPopWindow() {
 
         mPopupWindow = new PopupWindow(shopview, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true);
@@ -923,21 +937,17 @@ public class OrderListActvity extends BaseAppActivity implements OnHeaderClickLi
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 520) {
-            //处理扫描结果（在界面上显示）
-            if (null != data) {
+        //处理扫描结果（在界面上显示）
+        if (requestCode == 520 && data != null) {
                 Bundle bundle = data.getExtras();
-                if (bundle == null) {
-                    return;
-                }
-                if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS) {
-                    String result = bundle.getString(CodeUtils.RESULT_STRING);
-                    intoSearchGoods(result);
-                } else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
-                    Toast.makeText(OrderListActvity.this, "解析二维码失败", Toast.LENGTH_LONG).show();
+            ArrayList<HashMap<String, String>> result = (ArrayList<HashMap<String, String>>) bundle.getSerializable("data");
+            Iterator<HashMap<String, String>> it = result.iterator();
+            while (it.hasNext()) {
+                HashMap<String, String> hashMap = it.next();
+                Log.w("URL", "扫描结果：：：" + hashMap.get("VALUE"));
+                intoSearchGoods(hashMap.get("VALUE"));
                 }
             }
-        }
     }
 
     /**
@@ -1033,5 +1043,4 @@ public class OrderListActvity extends BaseAppActivity implements OnHeaderClickLi
             }
         }
     }
-
 }
