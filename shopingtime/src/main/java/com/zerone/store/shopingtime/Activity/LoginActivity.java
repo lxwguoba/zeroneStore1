@@ -51,7 +51,7 @@ public class LoginActivity extends BaseAppActivity {
     private LoginActivity mContext;
     private AccountInfoDao accountInfoDao;
     private CheckBox login_rember_account;
-
+//
     private boolean checkboolen = false;
     private ImageView showpassword;
     private boolean showBoolean = false;
